@@ -1,0 +1,32 @@
+package main
+
+import "fmt"
+
+// Funcao que verifica se as credenciais estao corretas
+func verificarLogin(usuario, senha string) bool {
+	if usuario == "senha" && senha == "admin" {
+		return true
+	}
+	return false
+}
+
+func main() {
+	var user, pass string
+
+	// Loop infinito ate que o login seja bem-sucedido
+	for {
+		fmt.Print("Digite o nome de usuário: ")
+		fmt.Scanln(&user)
+
+		fmt.Print("Digite a senha: ")
+		fmt.Scanln(&pass)
+
+		// Chamada da funcao de verificacao
+		if verificarLogin(user, pass) {
+			fmt.Println("Login bem-sucedido!")
+			break // Sai do loop
+		} else {
+			fmt.Println("Usuário ou senha incorretos. Tente novamente.")
+		}
+	}
+}
