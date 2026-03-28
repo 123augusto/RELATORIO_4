@@ -1,0 +1,31 @@
+package main
+
+import "fmt"
+
+// Funcao que gera e imprime os N primeiros numeros da sequencia
+func fibonacci(n int) {
+	a, b := 0, 1
+
+	fmt.Printf("Sequencia de Fibonacci (%d numeros):\n", n)
+
+	for i := 0; i < n; i++ {
+		fmt.Printf("%d ", a)
+		// Logica de soma: o proximo valor e a soma dos dois anteriores
+		a, b = b, a+b
+	}
+	fmt.Println() // Quebra de linha ao final
+}
+
+func main() {
+	var n int
+
+	fmt.Print("Quantos numeros da sequencia voce deseja? ")
+	fmt.Scanln(&n)
+
+	// Verifica se o numero e valido antes de chamar a funcao
+	if n <= 0 {
+		fmt.Println("Por favor, digite um numero maior que zero.")
+	} else {
+		fibonacci(n)
+	}
+}
